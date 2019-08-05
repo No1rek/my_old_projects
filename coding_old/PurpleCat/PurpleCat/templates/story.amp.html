@@ -1,0 +1,512 @@
+<!doctype html>
+<html amp lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="canonical" href="/index.html">
+    <title>Sample Site</title>
+
+    <!-- AMP -->
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Open-source framework for publishing content",
+        "datePublished": "2015-10-07T12:02:41Z",
+        "image": [
+          "logo.jpg"
+        ]
+      }
+    </script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    <!-- CSS -->
+    <style amp-custom>
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline; }
+
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block; }
+
+        body {
+            line-height: 1; }
+
+        ol, ul {
+            list-style: none; }
+
+        blockquote, q {
+            quotes: none; }
+
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none; }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0; }
+
+        html, * {
+            font-size: 62.5%;
+            font-family: Roboto, sans-serif;
+            font-weight: 300;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box; }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            min-height: 700px; }
+
+        html {
+            background: #fdfdfd; }
+        .main {
+            padding: 0 3rem; }
+        .main__aside {
+            display: none; }
+        .main_sans-padding {
+            padding: 0; }
+
+        div {
+            font-size: 1.6rem; }
+
+        p, span {
+            line-height: 1.5;
+            font-size: 1.6rem; }
+
+        p {
+            margin-bottom: 1.2rem; }
+        p:last-of-type {
+            margin-bottom: 0; }
+        h1, .h1 {
+            font-size: 4.8rem;
+            font-family: Prata, serif;
+            font-weight: 700;
+            margin-bottom: 1.2rem; }
+
+        h2, .h2 {
+            font-size: 3rem;
+            font-family: Prata, serif;
+            font-weight: 700;
+            margin-bottom: 1.2rem; }
+
+        .bold {
+            font-weight: 700; }
+
+        a, .text-link {
+            color: #f403f1;
+            text-decoration: none;
+            font-size: 1.6rem;
+            cursor: pointer; }
+        button, .button {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            width: 10rem;
+            background-color: #f403f1;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+            border-radius: 100px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fdfdfd;
+            padding: 1.2rem 2.4rem; }
+        blockquote {
+            position: relative;
+            display: block;
+            width: 100%;
+            font-style: italic;
+            line-height: 1.5;
+            padding: 0 10%;
+            margin-bottom: 1.2rem; }
+        blockquote:before, blockquote:after {
+            position: absolute;
+            font-family: Prata, serif;
+            font-size: 6rem;
+            line-height: 1;
+            font-style: normal; }
+        blockquote:before {
+            content: '«';
+            left: 0;
+            top: 0; }
+        blockquote:after {
+            content: '»';
+            right: 0;
+            bottom: 0; }
+        .header {
+            width: 100%;
+            height: auto; }
+        .menu {
+            width: 100%;
+            padding: 1.2rem 3rem;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center; }
+        .menu__item {
+            font-size: 1.6rem;
+            margin-right: 3rem;
+            color: #333333;
+            opacity: .4; }
+        .menu__item:last-child {
+            margin-right: 0; }
+        .menu__item_highlighted {
+            padding: 1.2rem 1.6rem;
+            color: #f403f1;
+            opacity: 1;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+            border-radius: 100px;
+            border: 1px solid #f403f1;
+            -webkit-transition: .3s ease-out;
+            -moz-transition: .3s ease-out;
+            -o-transition: .3s ease-out;
+            transition: .3s ease-out; }
+        .menu__item_highlighted:hover {
+            -webkit-transition: .3s ease-out;
+            -moz-transition: .3s ease-out;
+            -o-transition: .3s ease-out;
+            transition: .3s ease-out;
+            background: #f403f1;
+            color: #fdfdfd; }
+        .logo {
+            position: relative;
+            height: 13.2rem; }
+        .logo__square {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #f403f1;
+            width: 20%;
+            height: 100%; }
+        .logo__text-wrapper {
+            position: absolute;
+            bottom: 3.6rem;
+            left: 0;
+            padding: 0.6rem 3rem 0;
+            overflow: hidden; }
+        .logo__text {
+            font-family: Prata, serif;
+            font-size: 3rem;
+            color: #333333; }
+        .articles {
+            position: relative;
+            margin: 4.8rem 0; }
+        .articles__heading-wrapper {
+            position: absolute;
+            width: 40rem;
+            left: -41.6rem; }
+        .articles__heading {
+            position: absolute;
+            top: 0;
+            right: 0;
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+            -webkit-transform-origin: right top;
+            -moz-transform-origin: right top;
+            -ms-transform-origin: right top;
+            -o-transform-origin: right top;
+            transform-origin: right top;
+            padding-bottom: 0;
+            font-size: 1rem;
+            font-family: Prata, serif;
+            text-transform: uppercase;
+            letter-spacing: .2rem; }
+        .articles__item {
+            -webkit-box-shadow: 2px 2px 15px -3px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 2px 2px 15px -3px rgba(0, 0, 0, 0.2);
+            box-shadow: 2px 2px 15px -3px rgba(0, 0, 0, 0.2);
+            background: #ffffff;
+            margin-bottom: 3.6rem; }
+        .articles__item:last-of-type {
+            margin-bottom: 0; }
+        .articles__image {
+            height: 14.8rem;
+            background: #f403f1;
+            background-image: url("img/fox.jpg");
+            background-position: center center;
+            -webkit-background-size: cover;
+            background-size: cover; }
+        .articles__content-wrapper {
+            width: 100%; }
+        .articles__content {
+            padding: 2.4rem 3rem; }
+        .articles__name {
+            font-size: 1.6rem;
+            font-family: Prata, serif;
+            color: #333333;
+            margin-bottom: .9rem;
+            -webkit-transition: .3s ease-out;
+            -moz-transition: .3s ease-out;
+            -o-transition: .3s ease-out;
+            transition: .3s ease-out; }
+        .articles__name:hover {
+            color: #f403f1;
+            -webkit-transition: .3s ease-out;
+            -moz-transition: .3s ease-out;
+            -o-transition: .3s ease-out;
+            transition: .3s ease-out; }
+        .articles__description {
+            font-size: 1.2rem;
+            color: #666666; }
+        .articles__footer {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+            padding: 0 3rem 2.4rem 3rem;
+            position: relative; }
+        .articles__details {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -moz-flex-direction: column;
+            -webkit-flex-direction: column;
+            flex-direction: column; }
+        .articles__category {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: .6rem; }
+        .articles__category:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            margin-top: .4rem;
+            height: 1px;
+            width: 2rem;
+            background: #f403f1; }
+        .articles__date {
+            font-size: 1rem;
+            color: #999999; }
+        .articles__more {
+            display: block;
+            width: 100%;
+            margin-top: 3.6rem;
+            text-align: right;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1rem; }
+        .articles_additional {
+            padding: 0 3rem; }
+        .footer {
+            padding: 3.6rem 3rem 7.2rem; }
+        .footer__heading {
+            font-size: 1.6rem;
+            font-family: Prata, serif;
+            text-transform: uppercase;
+            letter-spacing: .1rem; }
+        .footer__links {
+            margin-top: 1.2rem; }
+        .footer__item {
+            display: block;
+            opacity: .4;
+            font-size: 1.6rem;
+            color: #333333;
+            text-transform: uppercase;
+            letter-spacing: .1rem;
+            line-height: 2;
+            -webkit-transition: .3s ease-out;
+            -moz-transition: .3s ease-out;
+            -o-transition: .3s ease-out;
+            transition: .3s ease-out; }
+        .footer__item:hover {
+            -webkit-transition: .3s ease-out;
+            -moz-transition: .3s ease-out;
+            -o-transition: .3s ease-out;
+            transition: .3s ease-out;
+            opacity: 1; }
+        .story {
+            margin: 4.8rem 0 0 0; }
+        .story__main-image {
+            width: 100%;
+            height: auto;
+            background: #f403f1; }
+        .story__content {
+            padding: 2.4rem 3rem; }
+        .story__main-info {
+            padding: 2.4rem 3rem 0; }
+        .story__name {
+            line-height: 1.2; }
+        .story__description {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 3.6rem; }
+        .story h2 {
+            margin-top: 2.4rem; }
+        .story__image {
+            width: 100%;
+            height: 17rem;
+            background: #f403f1; }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <nav class="menu">
+        <a class="menu__item">Categories</a>
+        <a class="menu__item menu__item_highlighted">Join</a>
+    </nav>
+    <div class="logo logo_small">
+        <div class="logo__square"></div>
+        <div class="logo__text-wrapper">
+            <a href="index.html" class="logo__text">Little Purple Cat</a>
+        </div>
+    </div>
+</header>
+
+<main class="main main_sans-padding">
+    <div class="main__content">
+        <section class="story">
+            <amp-img src="img/girl.jpg" alt="Girl" height="500" width="700" layout="responsive">
+                <noscript>
+                    <img class="story__main-image" src="img/girl.jpg" width="700" height="500" />
+                </noscript>
+            </amp-img>
+            <div class="story__main-info">
+                <h1 class="story__name">Article's Name</h1>
+                <span class="story__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Aliquid
+                            culpa
+                            eaque eligendi et odio voluptas!</span>
+            </div>
+            <div class="story__content">
+                <p class="story__p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, eveniet iure
+                    praesentium tempora ullam veniam.</p>
+                <h2 class="story__h2">Part 1</h2>
+                <p class="story__p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam consectetur
+                    error maiores non possimus quae quibusdam quod ratione, recusandae reprehenderit repudiandae
+                    suscipit temporibus tenetur ullam vel veritatis vero? A animi assumenda at consequuntur deserunt
+                    earum, esse et ex exercitationem facere harum labore magnam magni nobis, numquam, pariatur porro
+                    praesentium quae quaerat quia rem similique soluta vitae! Ad excepturi itaque minima nulla omnis
+                    quod voluptatibus!</p>
+                <p class="story__p">Lorem ipsum dolor sit amet, <a href="">consectetur</a> adipisicing elit. Aliquid
+                    aperiam atque commodi consequatur corporis dignissimos dolore ea in ipsa itaque iusto laboriosam
+                    nemo officia optio perspiciatis quaerat qui quis quos reprehenderit repudiandae sed, tempore
+                    temporibus!</p>
+            </div>
+            <amp-img src="img/cat.jpg" alt="Girl" height="400" width="700" layout="responsive">
+                <noscript>
+                    <img class="story__main-image" src="img/cat.jpg" width="700" height="400" />
+                </noscript>
+            </amp-img>
+            <div class="story__content">
+                <p class="story__p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem consectetur eius
+                    harum
+                    obcaecati provident? Debitis dolorem impedit ipsum modi molestias, nam non numquam voluptate.
+                    Asperiores
+                    excepturi expedita minima odio rerum? Animi cumque dolore ex facere facilis fugiat ipsum iste libero
+                    maxime nisi nobis obcaecati omnis, quae saepe totam voluptate?</p>
+                <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur aut cum dolorem
+                    eaque
+                    esse ipsum libero quis recusandae voluptatem? At debitis esse illo magnam maxime! Aliquid aspernatur
+                    distinctio eveniet illum nisi odio officia tempora temporibus! Alias aut autem culpa error facere in
+                    itaque modi nesciunt quaerat. Accusamus ad beatae consequatur cumque debitis doloremque dolores eum
+                    incidunt ipsam libero nam odit officia officiis pariatur quam, quidem recusandae similique vel,
+                    veritatis!
+                </blockquote>
+                <p class="story__p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem consectetur eius
+                    harum
+                    obcaecati provident? Debitis dolorem impedit ipsum modi molestias, nam non numquam voluptate.
+                    Asperiores
+                    excepturi expedita minima odio rerum? Animi cumque dolore ex facere facilis fugiat ipsum iste libero
+                    maxime nisi nobis obcaecati omnis, quae saepe totam voluptate?</p>
+            </div>
+        </section>
+
+        <section class="articles articles_additional">
+            <div class="articles__heading-wrapper">
+                <h1 class="articles__heading">Most liked</h1>
+            </div>
+            <article class="articles__item">
+                <header class="articles__image"></header>
+
+                <div class="articles__content-wrapper">
+                    <div class="articles__content">
+                        <a href=""><h2 class="articles__name">Article's Name</h2></a>
+                        <p class="articles__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Aliquid
+                            culpa
+                            eaque eligendi et odio voluptas!</p>
+                    </div>
+
+                    <footer class="articles__footer">
+                        <div class="articles__details">
+                            <a class="articles__category">Category</a>
+                            <time class="articles__date">03.03.2018</time>
+                        </div>
+
+                        <div class="articles__button-wrapper">
+                            <a class="articles__button button">Read</a>
+                        </div>
+                    </footer>
+                </div>
+            </article>
+        </section>
+    </div>
+
+    <aside class="main__aside aside">
+        <div class="aside__content">
+            <span class="aside__heading">Articles</span>
+        </div>
+    </aside>
+</main>
+
+
+<footer class="footer">
+    <span class="footer__heading">Categories</span>
+    <nav class="footer__links">
+        <a class="footer__item">Design</a>
+        <a class="footer__item">Language</a>
+        <a class="footer__item">About Me</a>
+        <a class="footer__item">In Ukrainian</a>
+        <a class="footer__item">Other</a>
+    </nav>
+</footer>
+</body>
+</html>

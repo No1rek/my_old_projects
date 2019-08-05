@@ -1,0 +1,13 @@
+Bot trader for poloniex.(uses obsolete API)
+
+“оргует по стратегии "“орговл€ на кра€х стакана".
+Ѕыл актуален на старом api и до заполнени€ биржи другими ботами. ѕосле возникновени€ конкуренции со стороны других ботов торговал в ноль.
+¬се параметры торговли указываютс€ в константах в начале.
+»спользует прокси дл€ обхода лимита запросов(6 запросов с ip) дл€ ускорени€ торговли.
+
+--
+Google translation:
+Trades on the strategy "Trade on the edges of a cup"
+Was relevant on the old api and before filling the Polo with other bots. After the emergence of competition from other bots traded to zero profits.
+All trading parameters are indicated in the constants at the beginning.
+Uses a proxy to bypass the query limit (6 queries with ip) to speed up the trade

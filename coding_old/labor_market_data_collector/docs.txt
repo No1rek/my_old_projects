@@ -1,0 +1,18 @@
+parse,py
+Парсит объявления сайта work ua с использованием regexp на предмет наличия возрастной дискриминации или требований к высшему образованию.
+использует result.db
+
+analyze.py
+Черновой скрипт.
+Считает основные сттистические величины на основе даных из БД.
+использует data.db
+
+--
+parse, py
+Parse ads on the site work.ua using regexp for the presence of age discrimination or higher education requirements.
+uses result.db
+
+analyze.py
+Draft script.
+Considers the basic statistical values based on data from the database.
+uses data.db

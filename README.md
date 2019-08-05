@@ -1,2 +1,1 @@
-# my_projects
-lots of interesting stuff
+Hi, I'm Ihor and there I store some of my projects.

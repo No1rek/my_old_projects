@@ -1,0 +1,109 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sample Site</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<header class="header">
+    <nav class="menu">
+        <a href="categories.html" class="menu__item">Categories</a>
+        <a class="menu__item menu__item_highlighted">Join</a>
+    </nav>
+    <div class="logo logo_small">
+        <div class="logo__square"></div>
+        <div class="logo__text-wrapper">
+            <a href="index.html" class="logo__text">Little Purple Cat</a>
+        </div>
+    </div>
+</header>
+
+<main class="main main_sans-padding">
+    <div class="main__content">
+        <section class="story">
+            <img class="story__main-image" src="{{ article.image }}">
+            <div class="story__main-info">
+                <h1 class="story__name">{{ article.title }}</h1>
+                <span class="story__description">{{ article.description }}</span>
+                <a href="http://{{ request.META.HTTP_HOST }}{{article.category.link}}" class="story__category">{{ article.category.name }}</a>
+            </div>
+            <div class="story__content">
+                {{ article.content|safe }}
+            </div>
+            <footer class="story__footer">
+                <time class="story__date">{{ article.date_published }}</time>
+                <div class="story__like">
+                    <div class="story__texts">
+                        <span class="story__like-upper-text">Goddamn, you're wonderful! :)</span>
+                        <span class="story__like-text">Was it worth your time?</span>
+                    </div>
+                    <div class="story__hearts">
+                        <i class="fas fa-heart story__upper-heart"></i>
+                        <i class="far fa-heart story__heart"></i>
+                    </div>
+                </div>
+            </footer>
+        </section>
+        {% if more_articles %}
+        <section class="articles articles_additional">
+            <h3 class="articles__additional-heading">Just a Little Bit More</h3>
+            {% for article in additional_articles %}
+                <article class="articles__item">
+                    <header style="background-image: url('/{{ article.image.image  }}')" class="articles__image"></header>
+
+                    <div class="articles__content-wrapper">
+                        <div class="articles__content">
+                            <a href="story.html"><h2 class="articles__name">{{ article.title }}</h2></a>
+                            <p class="articles__description">{{ article.description | truncatechars_html:256}}</p>
+                        </div>
+
+                        <footer class="articles__footer">
+                            <div class="articles__details">
+                                <a href="http://{{ request.META.HTTP_HOST }}/category-{{ category.link }}" class="articles__category">{{ article.category.name }}</a>
+                                <time class="articles__date">{{ article.date_published }}</time>
+                            </div>
+
+                            <div class="articles__button-wrapper">
+                                <a href="story.html" class="articles__button button">Read</a>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+            {% endfor %}
+        </section>
+        {% endif %}
+    </div>
+
+    <aside class="main__aside aside">
+        <div class="aside__content">
+            <div class="aside__main-image"></div>
+        </div>
+    </aside>
+</main>
+
+
+<footer class="footer">
+    <span class="footer__heading">Categories</span>
+    <nav class="footer__links">
+        {% for category in categories %}
+        <a href="http://{{ request.META.HTTP_HOST }}/category-{{ category.link }}" class="footer__item">{{category.name}}</a>
+        {% endfor %}
+    </nav>
+</footer>
+<!-- jQuery, loaded in the recommended protocol-less way -->
+<!-- more http://www.paulirish.com/2010/the-protocol-relative-url/ -->
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!-- fontawesome -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+</body>
+</html>

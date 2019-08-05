@@ -1,0 +1,154 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sample Site</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="body_animated"> <!--   -->
+
+<header class="header">
+    <nav class="header__menu menu animated">
+        <a href="categories" class="menu__item">Categories</a>
+        <a class="menu__item menu__item_highlighted">Join</a>
+    </nav>
+    <div class="header__logo logo logo_animated">
+        <div class="logo__square"></div>
+        <div class="logo__text-wrapper">
+            <a href="http://{{ request.META.HTTP_HOST }}" class="logo__text">Little Purple Cat</a>
+        </div>
+    </div>
+</header>
+
+<main class="main index animated">
+    <div class="main__content">
+        <section id="recent"  class="main__articles articles js-articles__recent">
+            <div class="articles__heading-wrapper">
+                <h1 class="articles__heading">Recent</h1>
+            </div>
+            {% for article in recent %}
+                <article class="articles__item">
+                    <header style="background-image: url('{{ article.image.image  }}')" class="articles__image"></header>
+
+                    <div class="articles__content-wrapper">
+                        <div class="articles__content">
+                            <a href="article-{{ article.id }}"><h2 class="articles__name">{{ article.title }}</h2></a>
+                            <p class="articles__description">{{ article.description | truncatechars_html:256}}</p>
+                        </div>
+
+                        <footer class="articles__footer">
+                            <div class="articles__details">
+                                <a href="category-{{ article.category.link }}" class="articles__category">{{ article.category.name }}</a>
+                                <time class="articles__date">{{ article.date_published }}</time>
+                            </div>
+
+                            <div class="articles__button-wrapper">
+                                <a href="article-{{ article.id }}" class="articles__button button">Read</a>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+            {% endfor %}
+
+            <a href="/s-recent" class="articles__more">More <i class="fas fa-angle-double-right"></i></a>
+        </section>
+        <section id="most-viewed" class="articles main__articles js-articles__most-viewed">
+            <div class="articles__heading-wrapper">
+                <h1  class="articles__heading">Most viewed</h1>
+            </div>
+
+            {% for article in most_viewed %}
+                <article class="articles__item">
+                    <header style="background-image: url('{{ article.image.image  }}')" class="articles__image"></header>
+
+                    <div class="articles__content-wrapper">
+                        <div class="articles__content">
+                            <a href="article-{{ article.id }}"><h2 class="articles__name">{{ article.title }}</h2></a>
+                            <p class="articles__description">{{ article.description | truncatechars_html:256}}</p>
+                        </div>
+
+                        <footer class="articles__footer">
+                            <div class="articles__details">
+                                <a href="category-{{ article.category.link }}" class="articles__category">{{ article.category.name }}</a>
+                                <time class="articles__date">{{ article.date_published }}</time>
+                            </div>
+
+                            <div class="articles__button-wrapper">
+                                <a href="article-{{ article.id }}" class="articles__button button">Read</a>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+            {% endfor %}
+            <a href="/s-most-viewed" class="articles__more">More <i class="fas fa-angle-double-right"></i></a>
+        </section>
+        <section id="most-liked" class="articles main__articles js-articles__most-liked">
+            <div class="articles__heading-wrapper">
+                <h1 class="articles__heading">Most liked</h1>
+            </div>
+            {% for article in most_liked %}
+                <article class="articles__item">
+                    <header style="background-image: url('{{ article.image.image  }}')" class="articles__image"></header>
+
+                    <div class="articles__content-wrapper">
+                        <div class="articles__content">
+                            <a href="article-{{ article.id }}"><h2 class="articles__name">{{ article.title }}</h2></a>
+                            <p class="articles__description">{{ article.description | truncatechars_html:256}}</p>
+                        </div>
+
+                        <footer class="articles__footer">
+                            <div class="articles__details">
+                                <a href="category-{{ article.category.link }}" class="articles__category">{{ article.category.name }}</a>
+                                <time class="articles__date">{{ article.date_published }}</time>
+                            </div>
+
+                            <div class="articles__button-wrapper">
+                                <a href="article-{{ article.id }}" class="articles__button button">Read</a>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+            {% endfor %}
+            <a href="/s-most-liked" class="articles__more">More <i class="fas fa-angle-double-right"></i></a>
+        </section>
+    </div>
+
+    <aside class="main__aside aside">
+        <div class="aside__content">
+            <span class="aside__heading">Articles</span>
+
+            <nav class="aside__links">
+                <a href="#recent" class="js-aside__recent aside__item aside__item_active">Recent</a>
+                <a href="#most-viewed" class="js-aside__most-viewed aside__item">Most Viewed</a>
+                <a href="#most-liked" class="js-aside__most-liked aside__item">Most Liked</a>
+            </nav>
+        </div>
+    </aside>
+</main>
+
+
+<footer class="footer animated">
+    <span class="footer__heading">Categories</span>
+    <nav class="footer__links">
+        {% for category in categories %}
+        <a href="category-{{ category.link }}" class="footer__item">{{ category.name}}</a>
+        {% endfor %}
+    </nav>
+</footer>
+<!-- jQuery, loaded in the recommended protocol-less way -->
+<!-- more http://www.paulirish.com/2010/the-protocol-relative-url/ -->
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!-- fontawesome -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+<!-- our JavaScript -->
+<script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

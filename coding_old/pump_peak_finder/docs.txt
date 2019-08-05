@@ -1,0 +1,29 @@
+This code is lightly obsolete due to Poloniex changed its api. But still some ideas can be used for finding peaks of some functions.
+
+Python 3; Uses: math, numpy, requests, json, time, datetime
+
+sell(pair, x0,y0, buyprice, currentprice, mimNumberOfTradesBefore, accur, testmod, startTime, currentTime)
+
+Returns true if there is a peak-like part of graph to sell currecy in this point of pump.
+pair –currency pair
+x0 – array of times of deals
+y0 – array of prices of deals
+buyprice – ...
+currentprice – ...
+mimNumberOfTradesBefore – deals to skip to accumulate enough data to analyze
+accur – defines sensitivity for peaks – 12 by defaul
+testmod – False by default, if True - returns an array of all deals in period between starttime and currenttime in format  dd-mm-yy hh:mm:ss
+
+
+stoplimit(buypr ,currentpr, lastResult, exr_intervals)
+
+Returns True if bot has to sell currency. 
+Works in case:
+- Peak of expected size is found (bigger than exr_intervals's last element)
+- Current price is lower than initial buy price.
+- Graph crossed one of stop-limit points and peak was found before.
+
+buypr – buyprice
+currentpr – currentprice
+lastResult – last peak's price (sell function returned True)
+exr_intervals – stop-limit points [-0.015,0.03,0.7,0.11]

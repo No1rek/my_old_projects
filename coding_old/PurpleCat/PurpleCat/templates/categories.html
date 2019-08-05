@@ -1,0 +1,56 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sample Site</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<header class="header">
+    <nav class="menu">
+        <a href="http://{{ request.META.HTTP_HOST }}/categories" class="menu__item menu__item_active">Categories</a>
+        <a class="menu__item menu__item_highlighted">Join</a>
+    </nav>
+    <div class="logo logo_small">
+        <div class="logo__square"></div>
+        <div class="logo__text-wrapper">
+            <a href="http://{{ request.META.HTTP_HOST }}" class="logo__text">Little Purple Cat</a>
+        </div>
+    </div>
+</header>
+
+<main class="main">
+    <div class="main__content categories">
+        {% for category in categories %}
+        <div class="categories__item">
+            <a href="http://{{ request.META.HTTP_HOST }}/category-{{ category.link }}"><h1 class="categories__heading">{{ category.name }}</h1></a>
+            <p class="categories__description">{{ category.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+<footer class="footer">
+    <span class="footer__heading">Categories</span>
+    <nav class="footer__links">
+        {% for category in categories %}
+        <a href="http://{{ request.META.HTTP_HOST }}/category-{{ category.link }}" class="footer__item">{{ category.name}}</a>
+        {% endfor %}
+    </nav>
+</footer>
+<!-- jQuery, loaded in the recommended protocol-less way -->
+<!-- more http://www.paulirish.com/2010/the-protocol-relative-url/ -->
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!-- fontawesome -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+</body>
+</html>

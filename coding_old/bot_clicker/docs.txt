@@ -1,0 +1,6 @@
+Бот использует winapi. Использовался для подборов паролей на эмуляторе Nox под конкретное приложение. 
+Кастомные координаты для кликов берет из файла coord.txt но алгоритм заточен под конкретную операцию.
+
+--
+Bot uses winapi. Used to brute passwords on the Nox emulator for a specific application.
+Custom coordinates for clicks are taken from the coord.txt file but the algorithm is sharpened for a specific operation.

@@ -1,0 +1,103 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sample Site</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<header class="header">
+    <nav class="menu">
+        <a href="http://{{ request.META.HTTP_HOST }}/categories" class="menu__item">Categories</a>
+        <a class="menu__item menu__item_highlighted">Join</a>
+    </nav>
+    <div class="logo logo_small">
+        <div class="logo__square"></div>
+        <div class="logo__text-wrapper">
+            <a href="http://{{ request.META.HTTP_HOST }}" class="logo__text">Little Purple Cat</a>
+        </div>
+    </div>
+</header>
+
+<main class="main">
+    <div class="main__content category">
+        <div class="category__header">
+            <h1 class="category__heading">{{ category }}</h1>
+            <div class="category__pagination pagination">
+                <form action="{{ HOST }}{{ category_link }}{{ sort_by_link }}{{ next_page }}"><button class="pagination__button"><i class="fas fa-arrow-left"></i></button></form>
+                <span class="pagination__num">{{ page }}</span>
+                <form action="{{ HOST }}{{ category_link }}{{ sort_by_link }}{{ previous_page }}"><button class="pagination__button"><i class="fas fa-arrow-right"></i></button></form>
+            </div>
+            <nav class="category__sub-categories">
+                {% if  sort_by == 'recent' %}
+                    <span class="category__sub-categories-item category__sub-categories-item_active">Recent</span>
+                    <a href="{{ HOST }}{{ category_link }}s-most-viewed/" class="category__sub-categories-item">Most Viewed</a>
+                    <a href="{{ HOST }}{{ category_link }}s-most-liked/" class="category__sub-categories-item">Most Liked</a>
+                {% elif sort_by == 'most-viewed' %}
+                    <a href="{{ HOST }}{{ category_link }}s-recent/" class="category__sub-categories-item">Recent</a>
+                    <span class="category__sub-categories-item category__sub-categories-item_active">Most Viewed</span>
+                    <a href="{{ HOST }}{{ category_link }}s-most-liked/" class="category__sub-categories-item">Most Liked</a>
+                {% elif sort_by == 'most-liked' %}
+                    <a href="{{ HOST }}{{ category_link }}s-recent/" class="category__sub-categories-item">Recent</a>
+                    <a href="{{ HOST }}{{ category_link }}s-most-viewed/" class="category__sub-categories-item">Most Viewed</a>
+                    <span class="category__sub-categories-item category__sub-categories-item_active">Most Liked</span>
+
+                {% endif %}
+
+            </nav>
+        </div>
+        <div class="category__content">
+            <div class="articles">
+                {% for article in articles %}
+                <article class="articles__item">
+                    <header style="background-image: url('/{{ article.image.image  }}')" class="articles__image"></header>
+
+                    <div class="articles__content-wrapper">
+                        <div class="articles__content">
+                            <a href="{{ HOST }}article-{{ article.id }}"><h2 class="articles__name">{{ article.title }}</h2></a>
+                            <p class="articles__description">{{ article.description | truncatechars_html:256}}</p>
+                        </div>
+
+                        <footer class="articles__footer">
+                            <div class="articles__details">
+                                <a href="http://{{ request.META.HTTP_HOST }}/category-{{ article.category.link }}" class="articles__category">{{ article.category.name }}</a>
+                                <time class="articles__date">{{ article.date_published }}</time>
+                            </div>
+
+                            <div class="articles__button-wrapper">
+                                <a href="{{ HOST }}article-{{ article.id }}" class="articles__button button">Read</a>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <span class="footer__heading">Categories</span>
+    <nav class="footer__links">
+        {% for category in categories %}
+        <a href="{{ HOST }}category-{{category.link}}" class="footer__item">{{category.name}}</a>
+        {% endfor %}
+
+    </nav>
+</footer>
+<!-- jQuery, loaded in the recommended protocol-less way -->
+<!-- more http://www.paulirish.com/2010/the-protocol-relative-url/ -->
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!-- fontawesome -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+</body>
+</html>
