@@ -1,9 +1,0 @@
-BINANCE = {
-    'API_KEY': 'a0AzSdkziiPHydUyhDsRktLfQxeIgRqzQDALdZtzV1RFiUGBRY1s4hWKbTHfFulK',
-    'API_SECRET': 'lvzWDYBLbS0Smf4I0xApb7ugyQoFKgfXIjKAOttxuohAPWXv7jIFHGTNQcRO4Ulx'
-}
-
-BITFINEX = {
-    'API_KEY': 'VS00sy8RblEecFYPGem6tYeBZ9ZG0FFKo5DYL5uuuEN',
-    'API_SECRET': 'etLmv4omeLc5Llv0ZcVihuPkMbhUL3qUrGhwr61jXP9'
-}

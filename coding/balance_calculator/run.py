@@ -79,9 +79,6 @@ BALANCE = {
     'TRX': 47582,
     'POE': 25935,
     'AION': 1914.75,
-
-    'ETH': 103.1092569,
-    'BNB': 9.24905655,
 }
 
 def add_current_balance_as_trades(balance):

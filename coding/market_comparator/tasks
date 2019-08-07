@@ -1,1 +1,0 @@
-[{"name":"eosbtc", "base_unit": {"market":"LTC/BTC", "exchange":"binance"}, "units":[{"market":"LTCBTC", "exchange":"binance"}, {"market":"LTCZ18", "exchange":"bitmex"}, {"market":"LTCBTC", "exchange":"bitfinex"}], "start":1544400000000,"end":1545004800000}]
